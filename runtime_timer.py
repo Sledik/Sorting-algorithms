@@ -19,3 +19,14 @@ def test_sorting_algorithms(list_size):
 
     print("Bubble sort na 100 čísel proběhl tisíckrát za",
           timeit.timeit(stmt=mystatement, setup=mysetup, number=1000), "sekund")
+
+    # Quick sort
+    mysetup = "from quick_sort import quick_sort"
+    mystatement = "quick_sort({}, {}, {})".format(list_of_numbers, 0, len(list_of_numbers) - 1)
+
+    print("Quick sort na 100 čísel proběhl tisíckrát za",
+          timeit.timeit(stmt=mystatement, setup=mysetup, number=1000), "sekund")
+
+
+if __name__ == '__main__':
+    test_sorting_algorithms(100)
