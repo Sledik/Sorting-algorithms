@@ -1,3 +1,5 @@
 venv
 sources
 notes
+.idea
+__pycache__
