@@ -1,0 +1,18 @@
+Quick Sort
+
+    Rozděl a panuj
+    Rekurzivní
+
+    Jako pivot se vybírá:
+        1. Prvek
+        Poslední prvek
+        Medián (všech nebo 1., posledního a prostředního)
+        Prostřední prvek
+        Náhodný prvek - Randomizovaný quicksort
+
+    Introsort - počítá si zanoření rekurze - kdyžtak přepne na heapsort
+
+    Časová komplexita:
+        nejhorší - O(n2)
+        průměr - O(n log n)
+        záleží na vybrání pivota
