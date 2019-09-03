@@ -1,3 +1,6 @@
+import random
+
+
 def get_pivot(array, low_index, high_index):
 
     # Hledáme index prvku uprostřed
@@ -45,18 +48,18 @@ def partition(array, low_index, high_index):
     # Vrať pozici, která nám jakoby rozděluje pole na dvě nová
     return position
 
-# def quick_sort(array):
-#     quick_sort2(array, 0, len(array) - 1)
 
+def quick_sort(array, low_index=0, high_index=None):
 
-def quick_sort(array, low_index, high_index):
+    if high_index is None:
+        high_index = len(array) - 1
 
     # Pokud pole obsahuje alespoň 2 prvky, které musí být seřazeny, pokračuj v řazení
     if low_index < high_index:
 
         # Ulož pozici prvku, který rozděluje původní pole na 2 další
-        dividing_position = partition(array, low_index, high_index)
+        split_index = partition(array, low_index, high_index)
         # Seřaď prvky (proveď funkci quick_sort) na 1. polovinu pole (končící rozdělujícím prvkem)
-        quick_sort(array, low_index, dividing_position - 1)
+        quick_sort(array, low_index, split_index - 1)
         # Seřaď prvky na 2. polovinu původního pole (za rozdělujícím prvkem)
-        quick_sort(array, dividing_position + 1, high_index)
+        quick_sort(array, split_index + 1, high_index)
