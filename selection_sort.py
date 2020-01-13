@@ -1,7 +1,7 @@
 def selection_sort(array):
 
     # Projdi všechny položky pole array
-    for i in range(0, len(array) - 1):
+    for i in range(len(array) - 1):
 
         # Projdi všechny neutříděné položky pole array a najdi nejmenší položku pole array
         min_index = i

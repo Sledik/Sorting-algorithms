@@ -1,6 +1,3 @@
-import random
-
-
 def get_pivot(array, low_index, high_index):
 
     # Hledáme index prvku uprostřed
@@ -12,6 +9,8 @@ def get_pivot(array, low_index, high_index):
     high = array[high_index]
 
     pivot = high_index
+
+    # Vyber jako pivota ten prvek z výše uvedených kandidátů, který je uprostřed při řazení podle velikosti
     if low < mid:
         if mid < high:
             pivot = middle_index
@@ -24,7 +23,8 @@ def get_pivot(array, low_index, high_index):
 def partition(array, low_index, high_index):
 
     # Najdi pozici pivota pomocí funkce get_pivot a ulož do jiné proměnné jeho hodnotu
-    pivot_index = get_pivot(array, low_index, high_index)
+    # pivot_index = get_pivot(array, low_index, high_index)
+    pivot_index = low_index
     pivot_value = array[pivot_index]
 
     # Přemisti pivota na začátek pole prohozením s prvním prvkem pole
@@ -34,11 +34,11 @@ def partition(array, low_index, high_index):
     # mezi většími a menšími čísly
     position = low_index
 
-    # Projdi všechny prvky pole
-    for i in range(low_index, high_index + 1):
+    # Projdi všechny prvky pole krom pivota na prvním místě
+    for i in range(low_index + 1, high_index + 1):
         # Pokud je tento prvek menší než pivot, prohoď prvek na naší "pozici" s tímto prvkem
+        # a posuň pozici dále
         if array[i] < pivot_value:
-            # Posuň pozici dále
             position += 1
             array[position], array[i] = array[i], array[position]
 
