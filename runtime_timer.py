@@ -6,7 +6,7 @@ def test_sorting_algorithms(list_size, run_count):
     # Pole obsahující daný počet (list_size) různých čísel od 1 do list_size
     list_of_numbers = random.sample(range(1, list_size + 1), list_size)
 
-    algorithms = ["bubble_sort", "selection_sort", "insertion_sort", "merge_sort", "quick_sort"]
+    algorithms = ["bubble_sort", "selection_sort", "insertion_sort", "merge_sort", "quick_sort", "multiselect_sort"]
 
     for alg in algorithms:
         setup = "from {0} import {0}".format(alg)
@@ -17,4 +17,4 @@ def test_sorting_algorithms(list_size, run_count):
 
 
 if __name__ == '__main__':
-    test_sorting_algorithms(1000, 100)
+    test_sorting_algorithms(100, 1000)
