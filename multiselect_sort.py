@@ -36,6 +36,11 @@ def multiselect_sort(array):
 
 	# Předřaď pole array
 	array = pre_sort(array)
+
+	# Pokud pole obsahuje více než 7000 prvků, je vhodné ho předřadit vícekrát (podle odhadu)
+	if len(array) >= 7000:
+		array = pre_sort(array)
+
 	# Použij Insertion sort, který je rychlý na předřazených polích
 	insertion_sort(array)
 
