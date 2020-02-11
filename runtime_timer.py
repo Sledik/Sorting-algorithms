@@ -2,9 +2,20 @@ import timeit
 import random
 
 
-def test_sorting_algorithms(list_size, run_count):
-    # Pole obsahující daný počet (list_size) různých čísel od 1 do list_size
-    list_of_numbers = random.sample(range(1, list_size + 1), list_size)
+def test_sorting_algorithms(list_size, run_count, mode="random"):
+
+    list_of_numbers = []
+
+    # Vyber postup podle zvoleného módu
+    if mode == "random":
+        # Pole obsahující daný počet (list_size) různých čísel od 1 do list_size
+        list_of_numbers = random.sample(range(1, list_size + 1), list_size)
+    elif mode == "reversed":
+        # Pole seřazených čísel v opačném směru, než ve kterém algoritmy řadí
+        list_of_numbers = [x for x in range(list_size + 1, 1, -1)]
+    else:
+        print("Error: Incorrect mode name. Choose from: 'random', 'reversed'.")
+        exit()
 
     # Pole algoritmů, které mají být podrobeny testu
     algorithms = ["bubble_sort", "selection_sort", "insertion_sort", "merge_sort", "quick_sort", "multiselect_sort"]
@@ -20,4 +31,4 @@ def test_sorting_algorithms(list_size, run_count):
 
 
 if __name__ == '__main__':
-    test_sorting_algorithms(1000, 100)
+    test_sorting_algorithms(1000, 100, mode="random")

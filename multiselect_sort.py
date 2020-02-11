@@ -8,7 +8,7 @@ def pre_sort(array):
 	small_items = []
 
 	# Projdi všechny položky pole array
-	for i in range(len(array) - 1):
+	for i in range(len(array)):
 
 		# Pokud pole small_items neobsahuje nic, přesuň tam první prvek pole array
 		if len(small_items) == 0:
