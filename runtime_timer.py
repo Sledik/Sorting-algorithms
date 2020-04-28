@@ -1,5 +1,6 @@
 import timeit
 import random
+from multiselect_sort import pre_sort
 
 
 def test_sorting_algorithms(list_size, run_count, mode="random"):
@@ -13,12 +14,18 @@ def test_sorting_algorithms(list_size, run_count, mode="random"):
     elif mode == "reversed":
         # Pole seřazených čísel v opačném směru, než ve kterém algoritmy řadí
         list_of_numbers = [x for x in range(list_size + 1, 1, -1)]
+    elif mode == "nearly-sorted":
+        # Pole obsahující daný počet (list_size) různých čísel od 1 do list_size
+        list_of_numbers = random.sample(range(1, list_size + 1), list_size)
+        # Předřaď pole (dvakrát pro téměř seřazené)
+        list_of_numbers = pre_sort(list_of_numbers)
+        list_of_numbers = pre_sort(list_of_numbers)
     else:
         print("Error: Incorrect mode name. Choose from: 'random', 'reversed'.")
         exit()
 
     # Pole algoritmů, které mají být podrobeny testu
-    algorithms = ["bubble_sort", "selection_sort", "insertion_sort", "merge_sort", "quick_sort", "multiselect_sort"]
+    algorithms = ["bubble_sort", "selection_sort", "insertion_sort",  "merge_sort", "quick_sort", "multiselect_sort"]
 
     # Proveď test pro každý algoritmus
     for alg in algorithms:
@@ -31,4 +38,4 @@ def test_sorting_algorithms(list_size, run_count, mode="random"):
 
 
 if __name__ == '__main__':
-    test_sorting_algorithms(1000, 100, mode="random")
+    test_sorting_algorithms(10000, 1, mode="random")

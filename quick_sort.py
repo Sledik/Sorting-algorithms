@@ -23,8 +23,9 @@ def get_pivot(array, low_index, high_index):
 def partition(array, low_index, high_index):
 
     # Najdi pozici pivota pomocí funkce get_pivot a ulož do jiné proměnné jeho hodnotu
-    # pivot_index = get_pivot(array, low_index, high_index)
-    pivot_index = low_index
+    
+    pivot_index = get_pivot(array, low_index, high_index)
+    # pivot_index = low_index
     pivot_value = array[pivot_index]
 
     # Přemisti pivota na začátek pole prohozením s prvním prvkem pole
